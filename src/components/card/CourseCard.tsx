@@ -1,50 +1,68 @@
-import Image from "next/image"
+'use client';
+
+import React from "react";
+import { FaUserFriends } from "react-icons/fa";
+import Image, { StaticImageData } from 'next/image';
+
 
 interface CourseCardProps {
-  imageSrc: string
-  title: string
-  instructor: string
-  status?: string
-  views?: string
+  title: string;
+  description: string;
+  members: string;
+  creator: string;
+  creatorImage: StaticImageData | string;
+  isJoined: boolean;
 }
 
-export function CourseCard({
-  imageSrc,
+export default function CourseCard({
   title,
-  instructor,
-  status,
-  views
+  description,
+  members,
+  creator,
+  creatorImage,
+  isJoined,
 }: CourseCardProps) {
   return (
-    <div className="h-full w-full rounded-2xl justify-between flex flex-col overflow-hidden shadow-md dark:shadow-white/20">
-      <Image
-        src={imageSrc}
-        alt={title}
-        width={1500}
-        height={1500}
-        className="w-full h-[420px] object-cover"
-      />
-      <div className="flex flex-col space-y-2 font-poppins h-full p-5">
-        <h1 className="text-lg font-semibold">{title}</h1>
-        <div className="flex items-center gap-2">
-          <Image src="/icons/profile-circle.svg" alt="Profile" height="100" width="100" className="size-5 dark:invert-100" />
-          <p className="text-base">{instructor}</p>
+    <div className="bg-white border border-gray-200 rounded-lg shadow-sm p-4 w-full flex flex-col justify-between h-60 course-cardss">
+      {/* Top: Title & Description */}
+      <div>
+        <h3 className="text-lg font-semibold text-gray-900">{title}</h3>
+        <p className="text-sm text-black-800 mt-1 line-clamp-2">{description}</p>
+      </div>
+
+      {/* Middle: Members */}
+      
+
+      <div className="flex items-center space-x-2 mt-2 creator-about">
+          <Image
+            src={creatorImage}
+            alt={creator}
+            width={40}
+            height={40}
+            className="w-8 h-8 rounded-full"
+          />
+          <span className="text-sm text-black-800">{creator}</span>
         </div>
 
-        {status && (
-        <div className="flex items-center gap-2">
-          <Image src="/icons/check.svg" alt="Profile" height="100" width="100" className="size-5" />
-          <p className="text-base">{status}</p>
-        </div>
-        )}
 
-        {views && (
-        <div className="text-sm flex items-center gap-2">
-          <Image src="/icons/eye.svg" alt="Profile" height="100" width="100" className="size-5 dark:invert-100" />
-          <p>{views}</p>
+      {/* Bottom: Creator & Button */}
+      <div className="flex justify-between items-center mt-auto pt-3">
+        <div className="flex items-center text-sm text-black-600 gap-2 mt-3 bg-gray-200 px-4 py-3 rounded-full course-cards-btn">
+          <FaUserFriends />
+          <span>{members} members</span>
         </div>
-        )}
+
+        <button
+          className={`text-sm font-medium px-4 py-3 course-cards-btn2 md:rounded-full mt-2 transition ${
+            isJoined
+              ? "bg-red-600 text-white hover:bg-red-700"
+              : "bg-blue-600 text-white hover:bg-blue-700"
+          }`}
+          disabled={isJoined}
+        >
+          {isJoined ? "View Group" : "Join Group"}
+        </button>
       </div>
     </div>
-  )
-} 
+  );
+}

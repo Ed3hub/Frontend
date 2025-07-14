@@ -1,4 +1,4 @@
-export default function Home() {
+/*export default function Home() {
   return (
     <div className="text-black min-h-screen">
       <div className="flex flex-col justify-center items-center">
@@ -7,4 +7,11 @@ export default function Home() {
       </div>
     </div>
   )
+}*/
+
+
+import { redirect } from 'next/navigation';
+
+export default function Home() {
+  redirect('/course-groups'); // or your main dashboard route
 }

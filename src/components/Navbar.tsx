@@ -1,13 +1,77 @@
 'use client';
 
-import { motion, useMotionValueEvent, useScroll } from 'motion/react';
+import Link from "next/link";
+import { FaComments, FaLayerGroup, FaVideo, FaUsers } from "react-icons/fa";
+
+interface NavbarProps {
+  activeTab: "discussions" | "course-groups" | "qna" | "network";
+}
+
+export default function Navbar({ activeTab }: NavbarProps) {
+  const tabItems = [
+    {
+      key: "discussions",
+      label: "Discussions",
+      href: "/discussions",
+      icon: <FaComments className="text-base sm:text-lg" />,
+    },
+    {
+      key: "course-groups",
+      label: "My Course Groups",
+      href: "/course-groups",
+      icon: <FaLayerGroup className="text-base sm:text-lg" />,
+    },
+    {
+      key: "qna",
+      label: "Live Q&As",
+      href: "/qna",
+      icon: <FaVideo className="text-base sm:text-lg" />,
+    },
+    {
+      key: "network",
+      label: "Network",
+      href: "/network",
+      icon: <FaUsers className="text-base sm:text-lg" />,
+    },
+  ];
+
+  const tabClasses = (key: string) =>
+    `flex items-center justify-center sm:justify-start gap-2 px-3 py-2 rounded-full text-sm sm:text-base font-medium transition whitespace-nowrap
+     ${
+       activeTab === key
+         ? "bg-[#3B82F6]/10 text-[#3B82F6]"
+         : "text-gray-600 hover:bg-gray-100"
+     }`;
+
+  return (
+    <nav
+      className="w-full px-2 sm:px-4 py-2 flex flex-wrap sm:flex-nowrap gap-2 sm:gap-4 justify-between"
+    >
+      {tabItems.map((tab) => (
+        <Link key={tab.key} href={tab.href} className={tabClasses(tab.key)}>
+          {tab.icon}
+          <span>{tab.label}</span>
+        </Link>
+      ))}
+    </nav>
+  );
+}
+
+
+
+
+
+
+
+/*import { motion, useMotionValueEvent, useScroll } from 'motion/react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useState } from 'react';
 import { ThemeToggleButton } from './ui/theme-toggle-button';
-import { Filter, Search } from 'lucide-react';
+import { Filter, Search } from 'lucide-react';*/
 
-const NavItems = [
+
+/*const NavItems = [
     { title: 'Home', href: '/home' },
     { title: 'Languages', href: '/languages' },
     { title: 'Tutors', href: '/tutors' },
@@ -83,4 +147,4 @@ export default function Navbar() {
             </motion.nav>
         </div>
     );
-}
+}*/

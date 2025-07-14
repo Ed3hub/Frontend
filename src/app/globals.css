@@ -197,3 +197,58 @@ h1, h2, h3, h4, h5, h6 {
 .course-card-shadow-dark {
   box-shadow: var(--shadow-x) var(--shadow-y) var(--shadow-blur) var(--shadow-color);
 }
+
+
+
+.ed3hub-e {
+  color: white;
+}
+
+.logout-button {
+  margin-top: 300px;
+}
+
+/* Course Cards */
+button {
+  cursor: pointer;
+}
+
+.creator-about {
+  margin-top: 30px;
+}
+
+.course-cards-btn {
+    padding: 8px;
+    border-radius: 7px;
+  }
+
+  .course-cards-btn2 {
+    padding: 9px 10px;
+    border-radius: 7px;
+  } 
+
+
+
+@media(max-width: 450px) {
+  .course-cardss {
+    height: 250px;
+  }
+
+
+  /* Discussion form */
+
+  .form-btns {
+    flex-direction: column-reverse !important;
+    gap: 7px !important;
+  }
+}
+
+@media(max-width: 600px) {
+  .course-cards-btn,
+  .course-cards-btn2 {
+    border-radius: 7px;
+  }
+}
+
+
+
