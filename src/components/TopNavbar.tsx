@@ -62,13 +62,50 @@ export default function TopNavbar() {
 
 'use client';
 
+import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 import { FaChevronDown } from "react-icons/fa";
 import { FiBell } from "react-icons/fi";
 import Image from 'next/image';
 import avatar from '@/assets/3d-avatar.jpg';
 
+
+
 export default function TopNavbar() {
+
+  // links
+  const tabItems = [
+      {
+        key: "profile",
+        label: "Profile",
+        href: "/profile",
+      },
+      {
+        key: "course-progress",
+        label: "Course Progress",
+        href: "/course-progress",
+      },
+      {
+        key: "earnings",
+        label: "Earnings & Engagements",
+        href: "/earnings",
+      },
+      {
+        key: "reset-password",
+        label: "Reset Password",
+        href: "/reset-password",
+      },
+      {
+        key: "wallet-overview",
+        label: "Wallet & Token Overview",
+        href: "/wallet-overview",
+      },
+    ];
+  
+
+
+
+
   const [open, setOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
 
@@ -118,9 +155,13 @@ export default function TopNavbar() {
           {open && (
             <div className="absolute right-0 mt-2 w-48 bg-white border border-gray-200 rounded shadow">
               <ul className="py-1 text-sm text-gray-700">
-                <li className="px-4 py-2 hover:bg-gray-100 cursor-pointer">Profile</li>
-                <li className="px-4 py-2 hover:bg-gray-100 cursor-pointer">Settings</li>
-                <li className="px-4 py-2 hover:bg-gray-100 cursor-pointer">Logout</li>
+                {tabItems.map((tab) => (
+                  <li className="px-4 py-2 hover:bg-gray-100 cursor-pointer">
+                    <Link key={tab.key} href={tab.href} className={(tab.key)}>
+                      <span>{tab.label}</span>
+                    </Link>
+                  </li>
+                ))}
               </ul>
             </div>
           )}

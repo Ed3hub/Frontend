@@ -40,7 +40,7 @@ const StartDiscussionForm: React.FC = () => {
             id="group"
             value={group}
             onChange={(e) => setGroup(e.target.value)}
-            className="w-full bg-white border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-black"
+            className="w-full bg-white border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-sky-600"
           >
             <option value="">Select a group</option>
             <option value="group1">Group 1</option>
@@ -57,7 +57,7 @@ const StartDiscussionForm: React.FC = () => {
             placeholder="Discussion title"
             value={title}
             onChange={(e) => setTitle(e.target.value)}
-            className="w-full bg-white border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-black"
+            className="w-full bg-white border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-sky-600"
           />
         </div>
 
@@ -70,7 +70,7 @@ const StartDiscussionForm: React.FC = () => {
             placeholder="Description"
             value={body}
             onChange={(e) => setBody(e.target.value)}
-            className="w-full bg-white border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-black resize-none"
+            className="w-full bg-white border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-sky-600 resize-none"
           />
         </div>
 
@@ -81,7 +81,7 @@ const StartDiscussionForm: React.FC = () => {
             onClick={handleCancel}
             disabled={!isFormFilled}
             className={`form-cancel-btn flex-1 sm:flex-none sm:w-30 px-2 py-3 md:py-4 md:w-50 rounded-lg font-medium transition-colors duration-200 
-              ${isFormFilled ? 'bg-red-600 text-white hover:bg-red-700' : 'bg-gray-100 border border-gray-400 text-black cursor-not-allowed'}`}
+              ${isFormFilled ? 'bg-red-600 text-white hover:bg-red-600' : 'bg-gray-100 border border-gray-200 text-black cursor-not-allowed'}`}
           >
             Cancel
           </button>
@@ -89,7 +89,7 @@ const StartDiscussionForm: React.FC = () => {
             type="submit"
             disabled={!isFormValid}
             className={`flex-1 sm:flex-none sm:w-40 px-4 py-3 md:py-4 md:w-60 rounded-lg font-medium transition-colors duration-200 
-              ${isFormValid ? 'bg-black text-white hover:opacity-90' : 'bg-gray-400 text-white cursor-not-allowed'}`}
+              ${isFormValid ? 'bg-sky-600 text-white hover:opacity-90' : 'bg-sky-200 text-white cursor-not-allowed'}`}
           >
             Post Discussion
           </button>
