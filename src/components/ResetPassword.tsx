@@ -43,7 +43,7 @@ export default function ResetPassword() {
   };
 
   return (
-    <div className="w-full h-full p-6 flex items-center justify-center bg-gray-50 text-black">
+    <div className="w-full h-full p-6 px-1 flex items-center justify-center bg-gray-50 text-black">
       <form className="w-full max-w-md bg-white p-8 rounded-lg shadow space-y-6">
         <h2 className="text-2xl font-semibold text-center">Reset Password</h2>
 
@@ -101,12 +101,12 @@ export default function ResetPassword() {
           </div>
 
           {/* Buttons */}
-          <div className="form-btns flex justify-between flex-wrap gap-6 mt-2">
+          <div className="form-btns flex justify-between flex-wrap gap-7 mt-2">
             <button
                type="button"
                onClick={handleCancel}
                disabled={!isFormFilled}
-               className={`form-cancel-btn flex-1 sm:flex-none sm:w-20 px-2 py-2 md:py-3 md:w-30 rounded-lg font-medium transition-colors duration-200
+               className={`form-cancel-btn flex-1 sm:flex-none sm:w-20 px-2 py-3 md:py-4 md:w-30 rounded-lg font-medium transition-colors duration-200
                 ${isFormFilled ? 'bg-red-600 text-white hover:bg-red-700' : 'bg-gray-100 border border-gray-200 text-black cursor-not-allowed'}`}
             >
                Cancel
@@ -116,7 +116,7 @@ export default function ResetPassword() {
               type="button"
               onClick={handleSaveChanges}
               disabled={!isFormValid}
-              className={`flex-1 sm:flex-none sm:w-30 px-4 py-2 md:py-3 md:w-40 rounded-lg font-medium transition-colors duration-200 
+              className={`flex-1 sm:flex-none sm:w-30 px-4 py-3 md:py-4 md:w-40 rounded-lg font-medium transition-colors duration-200 
                 ${isFormValid ? 'bg-sky-600 text-white hover:bg-sky-700' : 'bg-sky-200 text-white cursor-not-allowed'}`}
             >
               Save Changes

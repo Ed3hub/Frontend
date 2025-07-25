@@ -7,6 +7,8 @@ import { MdEdit } from 'react-icons/md';
 import toast from 'react-hot-toast';
 import { motion, AnimatePresence } from 'framer-motion';
 
+import Image from 'next/image';
+
 
 interface EditProfileModalProps {
   isOpen: boolean;
@@ -54,7 +56,7 @@ export default function EditProfileModal({
           transition={{ duration: 0.3 }}
           className="bg-white max-w-md w-full shadow-lg rounded-lg pointer-events-auto flex items-center p-4 ring-1 ring-sky-300  ring-opacity-5"
         >
-          <img
+          <Image
             src={formData.avatar}
             alt="Avatar"
             className="h-10 w-10 rounded-full object-cover"
