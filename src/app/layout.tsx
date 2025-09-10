@@ -30,9 +30,14 @@ export default function RootLayout({
       <body
         className={`${poppins.variable} ${openSans.variable} antialiased`}
       >
-      
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
+        >
           {children}
-        
+        </ThemeProvider>
       </body>
     </html>
   );

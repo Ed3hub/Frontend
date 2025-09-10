@@ -1,5 +1,4 @@
 import Image from "next/image"
-import Link from "next/link"
 
 interface TutorCardProps {
     imageSrc: string
@@ -18,9 +17,7 @@ export const TutorCard = ({
     role,
     socialLinks
 }: TutorCardProps) => {
-    const nameSlug = name.toLowerCase().replace(/\s+/g, '-').replace(/[^a-z0-9-]/g, '');
     return (
-        <Link href={`/tutors/${nameSlug}`} className="block">
         <div className="h-fit w-full rounded-2xl justify-between flex flex-col overflow-hidden shadow-md dark:shadow-white/20">
             <Image
                 src={imageSrc}
@@ -47,6 +44,5 @@ export const TutorCard = ({
                 </div>
             </div>
         </div>
-        </Link>
     )
 } 
