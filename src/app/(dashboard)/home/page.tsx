@@ -1,12 +1,10 @@
-import { motion } from "motion/react"
-import { Trophy, BookOpen, Clock, Award, Users, Target, Star, ChevronRight, Search, Filter } from 'lucide-react';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
+import { Trophy, BookOpen, Clock, Award, Star, ChevronRight, Target } from 'lucide-react';
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
-import { Progress } from '@/components/ui/progress';
 import Image from "next/image";
 import Navbar from "@/components/Navbar";
-import { redirect } from "next/navigation";
+
 import Link from "next/link";
 
 
@@ -79,19 +77,7 @@ export default function Home() {
     { level: 'Level 4', color: 'bg-pink-300', unlocked: false },
     { level: 'Level 5', color: 'bg-green-300', unlocked: false }
   ];
-  const fadeInUp = {
-    initial: { opacity: 0, y: 20 },
-    animate: { opacity: 1, y: 0 },
-    transition: { duration: 0.6 }
-  };
 
-  const staggerContainer = {
-    animate: {
-      transition: {
-        staggerChildren: 0.1
-      }
-    }
-  };
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 to-blue-50">
       {/* Header */}
@@ -104,7 +90,7 @@ export default function Home() {
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         {/* Welcome Section */}
-        <div  className="mb-8">
+        <div className="mb-8">
           <h1 className="text-3xl md:text-4xl font-bold text-gray-900 mb-2">
             Welcome, <span className="text-blue-600">Jonas May</span> 👋
           </h1>
@@ -112,7 +98,7 @@ export default function Home() {
         </div>
 
         {/* XP Progress Card */}
-        <div {...fadeInUp} className="mb-8">
+        <div className="mb-8">
           <Card className="bg-gradient-to-r from-slate-800 to-slate-900 text-white border-0 shadow-xl rounded-4xl">
             <CardContent className="p-6">
               <div className= " bg-sky-500 h-24 rounded-3xl flex flex-col md:flex-row justify-between items-start md:items-center gap-4 ">
@@ -151,7 +137,7 @@ export default function Home() {
         </div>
 
         {/* Challenges Section */}
-        <section {...fadeInUp} className="mb-12">
+        <section className="mb-12">
           <div className="flex justify-between items-center mb-6">
             <h2 className="text-2xl font-bold text-gray-900">Challenges</h2>
             <Button variant="ghost" className="text-blue-600 hover:text-blue-700">
@@ -196,7 +182,7 @@ export default function Home() {
         </section>
 
         {/* Ongoing Courses */}
-        <section {...fadeInUp} className="mb-12">
+        <section className="mb-12">
           <div className="flex justify-between items-center mb-6">
             <h2 className="text-2xl font-bold text-gray-900">Ongoing courses</h2>
             <Button  variant="ghost" className="text-blue-600 hover:text-blue-700">
@@ -250,7 +236,7 @@ export default function Home() {
           </div>
         </section>
 
-        <section {...fadeInUp} className="mb-12">
+        <section className="mb-12">
           <div className="flex justify-between items-center mb-6">
             <h2 className="text-2xl font-bold text-gray-900">Recommended courses</h2>
             <Button variant="ghost" className="text-blue-600 hover:text-blue-700">
@@ -344,7 +330,7 @@ export default function Home() {
         </div>
 
         {/* Featured Badge */}
-        <section {...fadeInUp} className="mb-12">
+        <section className="mb-12">
           <h2 className="text-2xl font-bold text-gray-900 mb-6">Featured Badge</h2>
           <Card className="bg-gradient-to-r from-yellow-50 to-orange-50 border-yellow-200">
             <CardContent className="p-6">
@@ -369,7 +355,7 @@ export default function Home() {
         </section>
 
         {/* NFTs */}
-        <section {...fadeInUp}>
+        <section>
           <h2 className="text-2xl font-bold text-gray-900 mb-6">NFTs</h2>
           <Card>
             <CardContent className="p-6">

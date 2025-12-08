@@ -1,14 +1,13 @@
 import { Button } from '@/components/ui/button'
 import { Card, CardContent } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
-import { ChevronRight, Link } from 'lucide-react'
+import { ChevronRight } from 'lucide-react'
 import Image from 'next/image'
 import React from 'react'
 import Navbar from '@/components/Navbar'
+import Link from 'next/link'
 
-type Props = {}
-
-const page = (props: Props) => {
+const page = () => {
   const courses = [
     {
       title: 'Intro to Web3 & Blockchain Basics',
@@ -33,11 +32,7 @@ const page = (props: Props) => {
     }
   ];
 
-  const fadeInUp = {
-    initial: { opacity: 0, y: 20 },
-    animate: { opacity: 1, y: 0 },
-    transition: { duration: 0.6 }
-  };
+
 
   return (
     <div>
@@ -46,7 +41,7 @@ const page = (props: Props) => {
       <div className='"max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8"'>
 
        
-    <section {...fadeInUp} className="mb-12">
+    <section className="mb-12">
     <div className="flex justify-between items-center mb-6">
       <h2 className="text-2xl font-bold text-gray-900">Ongoing courses</h2>
       <Button  variant="ghost" className="text-blue-600 hover:text-blue-700">

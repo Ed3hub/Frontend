@@ -1,32 +1,8 @@
 'use client';
 
-import { motion, useMotionValueEvent, useScroll } from 'motion/react';
-import Image from 'next/image';
-import Link from 'next/link';
-import { useState } from 'react';
-import { ThemeToggleButton } from './ui/theme-toggle-button';
 import { Filter, Search } from 'lucide-react';
 
-const NavItems = [
-    { title: 'Home', href: '/home' },
-    { title: 'Languages', href: '/languages' },
-    { title: 'Tutors', href: '/tutors' },
-    { title: 'Community', href: '/community' },
-    { title: 'Chat with tutor', href: '/chat-with-tutor' },
-];
-
 export default function Navbar() {
-    const [isHovered, setIsHovered] = useState<number | null>(null);
-    const { scrollY } = useScroll();
-    const [scrolled, setScrolled] = useState<boolean>(false);
-
-    useMotionValueEvent(scrollY, 'change', (latest) => {
-        if (latest > 20) {
-            setScrolled(true);
-        } else {
-            setScrolled(false);
-        }
-    });
 
     return (
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
