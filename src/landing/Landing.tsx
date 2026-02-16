@@ -1,20 +1,18 @@
 import React from 'react';
-import {
-  Navbar,
-  Hero,
-  Metrics,
-  WhyChooseUs,
-  TrendingCourses,
-  Instructors,
-  Testimonials,
-  PricingPlan,
-  ReadyToLearn,
-  Footer,
-} from '@/components/landing';
+import Navbar from './landingPage/Navbar';
+import Hero from './landingPage/Hero';
+import Metrics from './landingPage/Metrics';
+import WhyChooseUs from './landingPage/WhyChooseUs';
+import TrendingCourses from './landingPage/TrendingCourses';
+import Instructors from './landingPage/Instructors';
+import Testimonials from './landingPage/Testimonials';
+import PricingPlan from './landingPage/PricingPlan';
+import ReadyToLearn from './landingPage/ReadyToLearn';
+import Footer from './landingPage/Footer';
 
 /** * MAIN LANDING PAGE CONTAINER 
  */
-export default function Home() {
+const Landing: React.FC = () => {
   return (
     <div className="min-h-screen bg-white font-sans selection:bg-blue-100 selection:text-blue-700">
       <style>{`
@@ -40,4 +38,6 @@ export default function Home() {
       <Footer />
     </div>
   );
-}
+};
+
+export default Landing;
