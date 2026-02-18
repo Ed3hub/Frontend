@@ -14,7 +14,16 @@ const courses = [
   // ... duplicate this for as many cards as you need
 ];
 
-const CourseCard = ({ course }) => {
+interface Course {
+  id: number;
+  title: string;
+  rating: number;
+  students: number;
+  duration: string;
+  image: string;
+}
+
+const CourseCard = ({ course }: { course: Course }) => {
   return (
     <div className="bg-white rounded-2xl shadow-sm border border-gray-100 p-4 hover:shadow-md transition-shadow">
       {/* Course Image */}
