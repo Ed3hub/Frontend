@@ -10,6 +10,7 @@ import {
 } from "lucide-react";
 
 const PublishCourseFlow = () => {
+  type LegalState = { original: boolean; terms: boolean; reviewed: boolean };
   const [showCalendar, setShowCalendar] = useState(false);
   const [publishNow, setPublishNow] = useState(false);
 
@@ -34,7 +35,7 @@ const PublishCourseFlow = () => {
   const [assessmentEnabled, setAssessmentEnabled] = useState(true);
   const [autoTimeZone, setAutoTimeZone] = useState(true);
 
-  const [legal, setLegal] = useState({
+  const [legal, setLegal] = useState<LegalState>({
     original: true,
     terms: true,
     reviewed: true,
@@ -449,17 +450,17 @@ const PublishCourseFlow = () => {
               key={item.id}
               className="flex items-start gap-3 cursor-pointer"
               onClick={() =>
-                setLegal((p) => ({ ...p, [item.id]: !p[item.id] }))
+                setLegal((p) => ({ ...p, [item.id]: !p[item.id as keyof LegalState] }))
               }
             >
               <div
                 className={`w-4 h-4 mt-0.5 border flex items-center justify-center rounded-sm transition-colors ${
-                  legal[item.id]
+                  legal[item.id as keyof LegalState]
                     ? "bg-[#00AEEF] border-[#00AEEF]"
                     : "bg-white border-gray-300"
                 }`}
               >
-                {legal[item.id] && (
+                {legal[item.id as keyof LegalState] && (
                   <Check size={12} className="text-white stroke-[3px]" />
                 )}
               </div>

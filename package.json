@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev --turbopack",
-    "build": "SKIP_LINT=1 next build",
+    "build": "next build",
     "start": "next start",
     "lint": "next lint"
   },
@@ -26,6 +26,7 @@
     "react-dom": "^19.0.0",
     "react-hot-toast": "^2.5.2",
     "react-icons": "^5.5.0",
+    "recharts": "^3.7.0",
     "tailwind-merge": "^3.3.0"
   },
   "devDependencies": {

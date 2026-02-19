@@ -21,26 +21,26 @@ const CourseVisibility = () => {
   const [preview, setPreview] = useState(initialPreview);
 
   // Toggle function for visibility checkboxes
-  const handleVisibilityChange = (key) => {
+  const handleVisibilityChange = (key: keyof typeof initialVisibility) => {
     setVisibility((prev) => ({ ...prev, [key]: !prev[key] }));
   };
 
   // Toggle function for preview checkboxes
-  const handlePreviewChange = (key) => {
+  const handlePreviewChange = (key: keyof typeof initialPreview) => {
     setPreview((prev) => ({ ...prev, [key]: !prev[key] }));
   };
 
   // Reset function to uncheck everything
   const handleReset = () => {
-    const clearedVisibility = Object.keys(visibility).reduce((acc, key) => {
-      acc[key] = false;
-      return acc;
-    }, {});
+    const clearedVisibility = Object.keys(visibility).reduce(
+      (acc, key) => { acc[key as keyof typeof initialVisibility] = false; return acc; },
+      { ...initialVisibility }
+    );
 
-    const clearedPreview = Object.keys(preview).reduce((acc, key) => {
-      acc[key] = false;
-      return acc;
-    }, {});
+    const clearedPreview = Object.keys(preview).reduce(
+      (acc, key) => { acc[key as keyof typeof initialPreview] = false; return acc; },
+      { ...initialPreview }
+    );
 
     setVisibility(clearedVisibility);
     setPreview(clearedPreview);
@@ -79,8 +79,8 @@ const CourseVisibility = () => {
               <input
                 type="checkbox"
                 id={item.id}
-                checked={visibility[item.id]}
-                onChange={() => handleVisibilityChange(item.id)}
+                checked={visibility[item.id as keyof typeof initialVisibility]}
+                onChange={() => handleVisibilityChange(item.id as keyof typeof initialVisibility)}
                 className="w-4 h-4 rounded border-gray-300 accent-[#00AEEF] cursor-pointer"
               />
               <label

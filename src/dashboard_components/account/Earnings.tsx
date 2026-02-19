@@ -20,7 +20,14 @@ const data = [
   { name: "JUL", value: 5200 },
 ];
 
-const MetricCard = ({ icon: Icon, value, label, bgColor }) => (
+interface MetricCardProps {
+  icon: React.ElementType;
+  value: string;
+  label: string;
+  bgColor: string;
+}
+
+const MetricCard = ({ icon: Icon, value, label, bgColor }: MetricCardProps) => (
   <div className="bg-white rounded-2xl p-6 shadow-md border border-gray-100 flex flex-col items-start w-full">
     {/* Icon and Value on the same line to match reference image */}
     <div className="flex items-center space-x-4 mb-4">

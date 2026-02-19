@@ -14,7 +14,7 @@ const Pricing = () => {
   );
   const [showScheduleDropdown, setShowScheduleDropdown] = useState(false);
   const [selectedSchedule, setSelectedSchedule] = useState("");
-  const [thumbnail, setThumbnail] = useState(null);
+  const [thumbnail, setThumbnail] = useState<File | null>(null);
 
   const [walletRequired, setWalletRequired] = useState(true);
   const [freeCertificate, setFreeCertificate] = useState(true);
@@ -30,7 +30,7 @@ const Pricing = () => {
     TokenGated: false,
   });
 
-  const fileInputRef = useRef(null);
+  const fileInputRef = useRef<HTMLInputElement>(null);
 
   const plans = [
     {
@@ -77,13 +77,13 @@ const Pricing = () => {
     },
   ];
 
-  const handleScheduleSelect = (type) => {
+  const handleScheduleSelect = (type: string) => {
     setSelectedSchedule(type);
     setShowScheduleDropdown(false);
   };
 
-  const handleFileChange = (e) => {
-    const file = e.target.files[0];
+  const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
     if (file) setThumbnail(file);
   };
 
@@ -239,9 +239,9 @@ const Pricing = () => {
                 <div key={cat} className="flex items-center gap-3">
                   <input
                     type="checkbox"
-                    checked={categories[cat]}
+                    checked={categories[cat as keyof typeof categories]}
                     onChange={() =>
-                      setCategories({ ...categories, [cat]: !categories[cat] })
+                      setCategories({ ...categories, [cat]: !categories[cat as keyof typeof categories] })
                     }
                     className="accent-[#00AEEF]"
                   />
@@ -260,7 +260,7 @@ const Pricing = () => {
                 <Paperclip
                   size={18}
                   className="text-gray-400 cursor-pointer hover:text-[#00AEEF]"
-                  onClick={() => fileInputRef.current.click()}
+                  onClick={() => fileInputRef.current?.click()}
                 />
               </div>
               {thumbnail && (
@@ -288,11 +288,11 @@ const Pricing = () => {
                   <div key={type} className="flex items-center gap-3">
                     <input
                       type="checkbox"
-                      checked={accessTypes[type]}
+                      checked={accessTypes[type as keyof typeof accessTypes]}
                       onChange={() =>
                         setAccessTypes({
                           ...accessTypes,
-                          [type]: !accessTypes[type],
+                          [type]: !accessTypes[type as keyof typeof accessTypes],
                         })
                       }
                       className="accent-[#00AEEF]"

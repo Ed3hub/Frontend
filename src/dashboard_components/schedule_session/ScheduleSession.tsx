@@ -19,7 +19,7 @@ const ScheduleSession = () => {
 
   // Calendar States
   const [viewDate, setViewDate] = useState(new Date());
-  const [tempSelectedDate, setTempSelectedDate] = useState(null);
+  const [tempSelectedDate, setTempSelectedDate] = useState<Date | null>(null);
   const [finalDateDisplay, setFinalDateDisplay] = useState("");
 
   // Time States
@@ -31,13 +31,13 @@ const ScheduleSession = () => {
   const [autoTimeZone, setAutoTimeZone] = useState(true);
 
   // Calendar Logic
-  const daysInMonth = (year, month) => new Date(year, month + 1, 0).getDate();
-  const firstDayOfMonth = (year, month) => {
+  const daysInMonth = (year: number, month: number) => new Date(year, month + 1, 0).getDate();
+  const firstDayOfMonth = (year: number, month: number) => {
     const day = new Date(year, month, 1).getDay();
     return day === 0 ? 6 : day - 1; // Monday start
   };
 
-  const handleDateClick = (day) => {
+  const handleDateClick = (day: number) => {
     const selected = new Date(viewDate.getFullYear(), viewDate.getMonth(), day);
     setTempSelectedDate(selected);
   };

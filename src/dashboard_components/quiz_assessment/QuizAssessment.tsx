@@ -11,7 +11,7 @@ import {
 const QuizAssessment = () => {
   const [assessmentType, setAssessmentType] = useState("Quiz"); // Default to Quiz as per image
   const [currentQuestionIdx, setCurrentQuestionIdx] = useState(0);
-  const [answers, setAnswers] = useState({});
+  const [answers, setAnswers] = useState<Record<number, string>>({});
   const [isReviewMode, setIsReviewMode] = useState(false);
   const [showTypeDropdown, setShowTypeDropdown] = useState(false);
 
@@ -85,7 +85,7 @@ const QuizAssessment = () => {
     }
   };
 
-  const jumpToQuestion = (index) => {
+  const jumpToQuestion = (index: number) => {
     setCurrentQuestionIdx(index);
     setIsReviewMode(false);
   };
@@ -141,7 +141,7 @@ const QuizAssessment = () => {
           <div className="space-y-4">
             {activeQuestions[currentQuestionIdx].type === "mcq" ? (
               <div className="grid gap-3">
-                {activeQuestions[currentQuestionIdx].options.map((option, i) => (
+                {(activeQuestions[currentQuestionIdx] as { options?: string[] }).options?.map((option, i) => (
                   <button
                     key={i}
                     onClick={() => setAnswers({ ...answers, [currentQuestionIdx]: option })}
@@ -160,7 +160,7 @@ const QuizAssessment = () => {
               <div className="space-y-2">
                 <textarea
                   className="w-full p-4 border border-gray-200 rounded-xl outline-none focus:border-[#00AEEF] min-h-[150px] text-sm"
-                  placeholder={activeQuestions[currentQuestionIdx].placeholder || "Type your answer here..."}
+                  placeholder={(activeQuestions[currentQuestionIdx] as { placeholder?: string }).placeholder || "Type your answer here..."}
                   value={answers[currentQuestionIdx] || ""}
                   onChange={(e) => setAnswers({ ...answers, [currentQuestionIdx]: e.target.value })}
                 />
