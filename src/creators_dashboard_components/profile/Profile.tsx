@@ -15,17 +15,15 @@ const Profile: React.FC = () => {
       <form action="" method="post">
         {/* Below is the profile header section */}
         <div
-          className="flex justify-between z-10 fixed pt-[50px] lg:w-xl md:w-[54%] sm:w-full w-4/5 px-4 md:px-0"
+          className="flex justify-between z-10 fixed pb-4 mb-4 pt-[50px] lg:w-xl md:w-[54%] sm:w-full w-4/5 px-4 md:px-0"
           style={{ backgroundColor: "white" }}
         >
           <div className="flex flex-col space-y-4 justify-between">
             <h1 className="font-bold">Profile</h1>
-            <Image
-              src="/logo/ed3hub_logo.png"
+             <img
+              src="/logo/profile_picture.png"
+              className="w-24 h-24 object-fit rounded-full"
               alt="Profile Picture"
-              width={96}
-              height={96}
-              className="object-cover rounded-full"
             />
           </div>
           <div className="flex flex-col justify-between">
@@ -99,7 +97,7 @@ const Profile: React.FC = () => {
               className="p-2 font-medium rounded-md w-full border outline-none border-[#a4a4a4] text-[#5A5A5A] text-[13px]"
               placeholder="Enter your full name"
               id="fname"
-              value="Tom Haniel"
+              defaultValue="Tom Haniel"
             />
           </div>
           {/* Phone number section */}
@@ -116,7 +114,7 @@ const Profile: React.FC = () => {
               className="p-2 font-medium rounded-md w-full border outline-none border-[#a4a4a4] text-[#5A5A5A] text-[13px]"
               placeholder="Enter your phone number"
               id="phone"
-              value="+1-555-010-1234"
+              defaultValue="+1-555-010-1234"
             />
           </div>
           {/* Email address section */}
@@ -133,7 +131,7 @@ const Profile: React.FC = () => {
               className="p-2 font-medium rounded-md w-full border outline-none border-[#a4a4a4] text-[#5A5A5A] text-[13px]"
               placeholder="Enter your email address"
               id="email"
-              value="hanieltom@gmail.com"
+              defaultValue="hanieltom@gmail.com"
             />
           </div>
           {/* Location section */}
@@ -150,7 +148,7 @@ const Profile: React.FC = () => {
               className="p-2 font-medium rounded-md w-full border outline-none border-[#a4a4a4] text-[#5A5A5A] text-[13px]"
               placeholder="Enter your city, country"
               id="location"
-              value="washington DC, USA"
+              defaultValue="washington DC, USA"
             />
           </div>
           {/* Specialization section */}
@@ -167,7 +165,7 @@ const Profile: React.FC = () => {
               className="p-2 font-medium rounded-md w-full border outline-none border-[#a4a4a4] text-[#5A5A5A] text-[13px]"
               placeholder="Enter your specialization"
               id="specialization"
-              value="DeFi, NFTs"
+              defaultValue="DeFi, NFTs"
             />
           </div>
           {/* Experience section */}
@@ -184,7 +182,7 @@ const Profile: React.FC = () => {
               className="p-2 font-medium rounded-md w-full border outline-none border-[#a4a4a4] text-[#5A5A5A] text-[13px]"
               placeholder="Enter your years of experience"
               id="experience"
-              value="7 years"
+              defaultValue="7 years"
             />
           </div>
           {/* Bio section */}
@@ -350,7 +348,7 @@ const Profile: React.FC = () => {
                         height="14"
                         viewBox="0 0 24 24"
                       >
-                        <g fill="none" fill-rule="evenodd">
+                        <g fill="none" fillRule="evenodd">
                           <path d="m12.594 23.258l-.012.002l-.071.035l-.02.004l-.014-.004l-.071-.036q-.016-.004-.024.006l-.004.01l-.017.428l.005.02l.01.013l.104.074l.015.004l.012-.004l.104-.074l.012-.016l.004-.017l-.017-.427q-.004-.016-.016-.018m.264-.113l-.014.002l-.184.093l-.01.01l-.003.011l.018.43l.005.012l.008.008l.201.092q.019.005.029-.008l.004-.014l-.034-.614q-.005-.019-.02-.022m-.715.002a.02.02 0 0 0-.027.006l-.006.014l-.034.614q.001.018.017.024l.015-.002l.201-.093l.01-.008l.003-.011l.018-.43l-.003-.012l-.01-.01z" />
                           <path
                             fill="currentColor"
@@ -371,7 +369,7 @@ const Profile: React.FC = () => {
                       >
                         <path
                           fill="currentColor"
-                          fill-rule="evenodd"
+                          fillRule="evenodd"
                           d="m12.6 11.503l3.891 3.891l-.848.849L11.4 12V6h1.2zM12 22C6.477 22 2 17.523 2 12S6.477 2 12 2s10 4.477 10 10s-4.477 10-10 10m0-1.2a8.8 8.8 0 1 0 0-17.6a8.8 8.8 0 0 0 0 17.6"
                         />
                       </svg>
@@ -429,7 +427,7 @@ const Profile: React.FC = () => {
                         height="14"
                         viewBox="0 0 24 24"
                       >
-                        <g fill="none" fill-rule="evenodd">
+                        <g fill="none" fillRule="evenodd">
                           <path d="m12.594 23.258l-.012.002l-.071.035l-.02.004l-.014-.004l-.071-.036q-.016-.004-.024.006l-.004.01l-.017.428l.005.02l.01.013l.104.074l.015.004l.012-.004l.104-.074l.012-.016l.004-.017l-.017-.427q-.004-.016-.016-.018m.264-.113l-.014.002l-.184.093l-.01.01l-.003.011l.018.43l.005.012l.008.008l.201.092q.019.005.029-.008l.004-.014l-.034-.614q-.005-.019-.02-.022m-.715.002a.02.02 0 0 0-.027.006l-.006.014l-.034.614q.001.018.017.024l.015-.002l.201-.093l.01-.008l.003-.011l.018-.43l-.003-.012l-.01-.01z" />
                           <path
                             fill="currentColor"
@@ -450,7 +448,7 @@ const Profile: React.FC = () => {
                       >
                         <path
                           fill="currentColor"
-                          fill-rule="evenodd"
+                          fillRule="evenodd"
                           d="m12.6 11.503l3.891 3.891l-.848.849L11.4 12V6h1.2zM12 22C6.477 22 2 17.523 2 12S6.477 2 12 2s10 4.477 10 10s-4.477 10-10 10m0-1.2a8.8 8.8 0 1 0 0-17.6a8.8 8.8 0 0 0 0 17.6"
                         />
                       </svg>
@@ -506,7 +504,7 @@ const Profile: React.FC = () => {
                         height="14"
                         viewBox="0 0 24 24"
                       >
-                        <g fill="none" fill-rule="evenodd">
+                        <g fill="none" fillRule="evenodd">
                           <path d="m12.594 23.258l-.012.002l-.071.035l-.02.004l-.014-.004l-.071-.036q-.016-.004-.024.006l-.004.01l-.017.428l.005.02l.01.013l.104.074l.015.004l.012-.004l.104-.074l.012-.016l.004-.017l-.017-.427q-.004-.016-.016-.018m.264-.113l-.014.002l-.184.093l-.01.01l-.003.011l.018.43l.005.012l.008.008l.201.092q.019.005.029-.008l.004-.014l-.034-.614q-.005-.019-.02-.022m-.715.002a.02.02 0 0 0-.027.006l-.006.014l-.034.614q.001.018.017.024l.015-.002l.201-.093l.01-.008l.003-.011l.018-.43l-.003-.012l-.01-.01z" />
                           <path
                             fill="currentColor"
@@ -527,7 +525,7 @@ const Profile: React.FC = () => {
                       >
                         <path
                           fill="currentColor"
-                          fill-rule="evenodd"
+                          fillRule="evenodd"
                           d="m12.6 11.503l3.891 3.891l-.848.849L11.4 12V6h1.2zM12 22C6.477 22 2 17.523 2 12S6.477 2 12 2s10 4.477 10 10s-4.477 10-10 10m0-1.2a8.8 8.8 0 1 0 0-17.6a8.8 8.8 0 0 0 0 17.6"
                         />
                       </svg>
@@ -583,7 +581,7 @@ const Profile: React.FC = () => {
                         height="14"
                         viewBox="0 0 24 24"
                       >
-                        <g fill="none" fill-rule="evenodd">
+                        <g fill="none" fillRule="evenodd">
                           <path d="m12.594 23.258l-.012.002l-.071.035l-.02.004l-.014-.004l-.071-.036q-.016-.004-.024.006l-.004.01l-.017.428l.005.02l.01.013l.104.074l.015.004l.012-.004l.104-.074l.012-.016l.004-.017l-.017-.427q-.004-.016-.016-.018m.264-.113l-.014.002l-.184.093l-.01.01l-.003.011l.018.43l.005.012l.008.008l.201.092q.019.005.029-.008l.004-.014l-.034-.614q-.005-.019-.02-.022m-.715.002a.02.02 0 0 0-.027.006l-.006.014l-.034.614q.001.018.017.024l.015-.002l.201-.093l.01-.008l.003-.011l.018-.43l-.003-.012l-.01-.01z" />
                           <path
                             fill="currentColor"
@@ -604,7 +602,7 @@ const Profile: React.FC = () => {
                       >
                         <path
                           fill="currentColor"
-                          fill-rule="evenodd"
+                          fillRule="evenodd"
                           d="m12.6 11.503l3.891 3.891l-.848.849L11.4 12V6h1.2zM12 22C6.477 22 2 17.523 2 12S6.477 2 12 2s10 4.477 10 10s-4.477 10-10 10m0-1.2a8.8 8.8 0 1 0 0-17.6a8.8 8.8 0 0 0 0 17.6"
                         />
                       </svg>
@@ -660,7 +658,7 @@ const Profile: React.FC = () => {
                         height="14"
                         viewBox="0 0 24 24"
                       >
-                        <g fill="none" fill-rule="evenodd">
+                        <g fill="none" fillRule="evenodd">
                           <path d="m12.594 23.258l-.012.002l-.071.035l-.02.004l-.014-.004l-.071-.036q-.016-.004-.024.006l-.004.01l-.017.428l.005.02l.01.013l.104.074l.015.004l.012-.004l.104-.074l.012-.016l.004-.017l-.017-.427q-.004-.016-.016-.018m.264-.113l-.014.002l-.184.093l-.01.01l-.003.011l.018.43l.005.012l.008.008l.201.092q.019.005.029-.008l.004-.014l-.034-.614q-.005-.019-.02-.022m-.715.002a.02.02 0 0 0-.027.006l-.006.014l-.034.614q.001.018.017.024l.015-.002l.201-.093l.01-.008l.003-.011l.018-.43l-.003-.012l-.01-.01z" />
                           <path
                             fill="currentColor"
@@ -681,7 +679,7 @@ const Profile: React.FC = () => {
                       >
                         <path
                           fill="currentColor"
-                          fill-rule="evenodd"
+                          fillRule="evenodd"
                           d="m12.6 11.503l3.891 3.891l-.848.849L11.4 12V6h1.2zM12 22C6.477 22 2 17.523 2 12S6.477 2 12 2s10 4.477 10 10s-4.477 10-10 10m0-1.2a8.8 8.8 0 1 0 0-17.6a8.8 8.8 0 0 0 0 17.6"
                         />
                       </svg>
@@ -737,7 +735,7 @@ const Profile: React.FC = () => {
                         height="14"
                         viewBox="0 0 24 24"
                       >
-                        <g fill="none" fill-rule="evenodd">
+                        <g fill="none" fillRule="evenodd">
                           <path d="m12.594 23.258l-.012.002l-.071.035l-.02.004l-.014-.004l-.071-.036q-.016-.004-.024.006l-.004.01l-.017.428l.005.02l.01.013l.104.074l.015.004l.012-.004l.104-.074l.012-.016l.004-.017l-.017-.427q-.004-.016-.016-.018m.264-.113l-.014.002l-.184.093l-.01.01l-.003.011l.018.43l.005.012l.008.008l.201.092q.019.005.029-.008l.004-.014l-.034-.614q-.005-.019-.02-.022m-.715.002a.02.02 0 0 0-.027.006l-.006.014l-.034.614q.001.018.017.024l.015-.002l.201-.093l.01-.008l.003-.011l.018-.43l-.003-.012l-.01-.01z" />
                           <path
                             fill="currentColor"
@@ -758,7 +756,7 @@ const Profile: React.FC = () => {
                       >
                         <path
                           fill="currentColor"
-                          fill-rule="evenodd"
+                          fillRule="evenodd"
                           d="m12.6 11.503l3.891 3.891l-.848.849L11.4 12V6h1.2zM12 22C6.477 22 2 17.523 2 12S6.477 2 12 2s10 4.477 10 10s-4.477 10-10 10m0-1.2a8.8 8.8 0 1 0 0-17.6a8.8 8.8 0 0 0 0 17.6"
                         />
                       </svg>

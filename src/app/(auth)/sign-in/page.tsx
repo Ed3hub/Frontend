@@ -8,10 +8,15 @@ import EmailVerification from "@/components/EmailVerification";
 import React from "react";
 import { useRouter } from "next/navigation";
 
+const HARDCODED_EMAIL = "damyounggraphics@gmail.com";
+const HARDCODED_PASSWORD = "admin";
 
 export default function SignIn() {
   const router = useRouter();
   const [showVerification, setShowVerification] = React.useState(false);
+  const [email, setEmail] = React.useState("");
+  const [password, setPassword] = React.useState("");
+  const [error, setError] = React.useState("");
 
   const handleForgotPassword = () => {
     setShowVerification(true);
@@ -27,6 +32,15 @@ export default function SignIn() {
 
   const handleResend = () => {
     alert("Resend code clicked");
+  };
+
+  const handleSignIn = (event: React.FormEvent) => {
+    event.preventDefault();
+    if (email === HARDCODED_EMAIL && password === HARDCODED_PASSWORD) {
+      router.push("/dashboard");
+    } else {
+      setError("Invalid email or password. Please try again.");
+    }
   };
 
   return (
@@ -54,16 +68,15 @@ export default function SignIn() {
           <form
             action="#"
             className="w-2/3 space-y-4 py-5"
-            onSubmit={(event) => {
-              event.preventDefault();
-              router.push("/"); // Navigate to home page after successful sign-in
-            }}
+            onSubmit={handleSignIn}
           >
             <Input
               type="email"
               placeholder="Email"
               label="Email"
               labelClassName="text-sm"
+              value={email}
+              onChange={(e) => { setEmail(e.target.value); setError(""); }}
             />
             <Input
               type="password"
@@ -71,10 +84,15 @@ export default function SignIn() {
               label="Password"
               labelClassName="text-sm"
               togglePassword
+              value={password}
+              onChange={(e) => { setPassword(e.target.value); setError(""); }}
             />
-            
 
-            <div className="fle x items-center space-x-2 py-2">
+            {error && (
+              <p className="text-red-500 text-sm">{error}</p>
+            )}
+
+            <div className="flex items-center space-x-2 py-2">
               <Input
                 type="checkbox"
                 name="remember"
@@ -100,7 +118,7 @@ export default function SignIn() {
               className="w-full rounded-full hover:bg-transparent active:bg-transparent active:border-0 p-0 bg-transparent text-primary"
               size="sm"
               type="button"
-              onClick={handleForgotPassword} // Trigger email verification
+              onClick={handleForgotPassword}
             >
               Forget Password?
             </Button>

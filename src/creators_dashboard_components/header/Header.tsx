@@ -54,13 +54,7 @@ const Header: React.FC<HeaderProps> = ({ isMobileMenuOpen, setIsMobileMenuOpen, 
             2
           </span>
         </div>
-        <Image
-          src="/logo/ed3hub_logo.png"
-          alt="Profile Picture"
-          width={24}
-          height={24}
-          className="rounded-sm"
-        />
+      
         <div className="flex align-center">
           <p className="font-bold text-[10px] md:text-[12px] hidden sm:block">
             Tom Haniel

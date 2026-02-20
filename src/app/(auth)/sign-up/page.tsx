@@ -1,6 +1,5 @@
 "use client";
 
-import EmailVerification from "@/components/EmailVerification";
 import RoleRadio from "@/components/RoleRadio";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -11,29 +10,15 @@ import React from "react";
 
 export default function SignUp() {
   const router = useRouter();
-  const [showVerification, setShowVerification] = React.useState(false);
 
   const handleSignUp = (event: React.FormEvent) => {
     event.preventDefault();
-    setShowVerification(true);
-  };
-
-  const handleVerify = (otp: string) => {
-    alert(`OTP entered: ${otp}`);
     router.push("/sign-in");
-  };
-
-  const handleResend = () => {
-    alert("Resend code clicked");
   };
 
   return (
     <div className="flex flex-col w-full space-y-4 items-center justify-center font-open-sans">
 
-      {showVerification ? (
-        <EmailVerification onVerify={handleVerify} onResend={handleResend} />
-      ) : (
-        <>
           {/* Logo and title */}
           <div className="flex flex-col space-y-2 justify-center items-center">
             <Image
@@ -100,8 +85,6 @@ export default function SignUp() {
           <div className="flex flex-col space-y-2 justify-center items-center">
             <p className="text-sm font-open-sans">Already have an account? <Link href="/sign-in" className="">Sign In</Link></p>
           </div>
-        </>
-      )}
     </div>
   )
 }

@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import Image from "next/image";
 import "./sidebar.css";
 
 interface SidebarProps {
@@ -36,10 +37,13 @@ const Sidebar: React.FC<SidebarProps> = ({ setIsMobileMenuOpen, activeTab, setAc
       </button>
       {/* This is the logo section below */}
       <div className="logo">
-        <span className="log1 font-medium">
-          <h1 className="mb-2">e</h1>
-        </span>
-        <h1 className="log2 font-extrabold">d3hub</h1>
+        <Image
+          src="/logo/ed3hub_logo.png"
+          alt="ed3hub logo"
+          width={100}
+          height={100}
+          className="object-contain"
+        />
       </div>
       {/* Below is the option for home and account to choose from  */}
       <div className="options">
@@ -103,9 +107,9 @@ const Sidebar: React.FC<SidebarProps> = ({ setIsMobileMenuOpen, activeTab, setAc
             >
               <path
                 fill="currentColor"
-                fill-rule="evenodd"
+                fillRule="evenodd"
                 d="M16.125 12a.75.75 0 0 0-.75-.75H4.402l1.961-1.68a.75.75 0 1 0-.976-1.14l-3.5 3a.75.75 0 0 0 0 1.14l3.5 3a.75.75 0 1 0 .976-1.14l-1.96-1.68h10.972a.75.75 0 0 0 .75-.75"
-                clip-rule="evenodd"
+                clipRule="evenodd"
               />
               <path
                 fill="currentColor"

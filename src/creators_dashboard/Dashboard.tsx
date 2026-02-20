@@ -14,7 +14,7 @@ import {
   CourseProgress,
   Earnings,
   ResetPassword,
-} from "../dashboard_components";
+} from "../creators_dashboard_components";
 import "./dashboard.css";
 const Dashboard = () => {
   const [activeTab, setActiveTab] = useState("Home");
