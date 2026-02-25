@@ -57,20 +57,20 @@ const Selection: React.FC<SelectionProps> = ({ selected, setSelected, activeTab 
                 <g
                   fill="none"
                   stroke="currentColor"
-                  stroke-linecap="round"
-                  stroke-width="1.5"
+                  strokeLinecap="round"
+                  strokeWidth="1.5"
                 >
                   <path
-                    stroke-linejoin="round"
+                    strokeLinejoin="round"
                     d="M14.186 2.753v3.596c0 .487.194.955.54 1.3a1.85 1.85 0 0 0 1.306.539h4.125"
                   />
                   <path
-                    stroke-linejoin="round"
+                    strokeLinejoin="round"
                     d="M20.25 8.568v8.568a4.25 4.25 0 0 1-1.362 2.97a4.28 4.28 0 0 1-3.072 1.14h-7.59a4.3 4.3 0 0 1-3.1-1.124a4.26 4.26 0 0 1-1.376-2.986V6.862a4.25 4.25 0 0 1 1.362-2.97a4.28 4.28 0 0 1 3.072-1.14h5.714a3.5 3.5 0 0 1 2.361.905l2.96 2.722a2.97 2.97 0 0 1 1.031 2.189"
                   />
-                  <path stroke-miterlimit="10" d="M12 10.499v6.774" />
+                  <path strokeMiterlimit="10" d="M12 10.499v6.774" />
                   <path
-                    stroke-linejoin="round"
+                    strokeLinejoin="round"
                     d="m15.106 13.35l-2.665-2.665a.62.62 0 0 0-.882 0l-2.665 2.666"
                   />
                 </g>
@@ -96,22 +96,22 @@ const Selection: React.FC<SelectionProps> = ({ selected, setSelected, activeTab 
                 height="16"
                 viewBox="0 0 24 24"
               >
-                <g fill="none" stroke="currentColor" stroke-width="1.5">
+                <g fill="none" stroke="currentColor" strokeWidth="1.5">
                   <path
-                    stroke-linecap="square"
-                    stroke-linejoin="round"
+                    strokeLinecap="square"
+                    strokeLinejoin="round"
                     d="M20.5 14v-3.5c0-2.335 0-3.502-.472-4.386a4 4 0 0 0-1.642-1.642C17.502 4 16.335 4 14 4a2 2 0 1 0-4 0c-2.335 0-3.502 0-4.386.472a4 4 0 0 0-1.642 1.642C3.5 6.998 3.5 8.165 3.5 10.5V14c0 3.771 0 5.657 1.172 6.828S7.729 22 11.5 22h1c3.771 0 5.657 0 6.828-1.172S20.5 17.771 20.5 14Z"
                   />
-                  <path stroke-linecap="round" d="M6.5 10h4" />
+                  <path strokeLinecap="round" d="M6.5 10h4" />
                   <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
                     d="M13.5 11s.5 0 1 1c0 0 1.588-2.5 3-3"
                   />
-                  <path stroke-linecap="round" d="M6.5 16h4" />
+                  <path strokeLinecap="round" d="M6.5 16h4" />
                   <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
                     d="M13.5 17s.5 0 1 1c0 0 1.588-2.5 3-3"
                   />
                 </g>

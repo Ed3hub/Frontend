@@ -8,7 +8,8 @@ import EmailVerification from "@/components/EmailVerification";
 import React from "react";
 import { useRouter } from "next/navigation";
 
-const HARDCODED_EMAIL = "damyounggraphics@gmail.com";
+const CREATOR_EMAIL = "damyounggraphics@gmail.com";
+const LEARNER_EMAIL = "samuelayodeji027@gmail.com";
 const HARDCODED_PASSWORD = "admin";
 
 export default function SignIn() {
@@ -36,10 +37,16 @@ export default function SignIn() {
 
   const handleSignIn = (event: React.FormEvent) => {
     event.preventDefault();
-    if (email === HARDCODED_EMAIL && password === HARDCODED_PASSWORD) {
-      router.push("/dashboard");
+    if (password === HARDCODED_PASSWORD) {
+      if (email === CREATOR_EMAIL) {
+        router.push("/dashboard");
+      } else if (email === LEARNER_EMAIL) {
+        router.push("/learner-dashboard");
+      } else {
+        setError("Invalid email. Please try again.");
+      }
     } else {
-      setError("Invalid email or password. Please try again.");
+      setError("Invalid password. Please try again.");
     }
   };
 
