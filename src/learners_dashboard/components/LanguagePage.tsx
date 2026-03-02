@@ -3,29 +3,17 @@ import { Search } from 'lucide-react';
 
 const LanguagePage = () => {
   const languages = [
-    { name: 'Bengali', flag: '🇧🇩' },
-    { name: 'Afrikaans', flag: '🇿🇦' },
-    { name: 'Basque', flag: '🇪🇸' },
-    { name: 'Armenian', flag: '🇦🇲' },
-    { name: 'Albanian', flag: '🇦🇱' },
-    { name: 'Amharic', flag: '🇪🇹', active: true },
-    { name: 'Azerbaijani', flag: '🇦🇿' },
-    { name: 'Arabic', flag: '🇸🇦' },
-    { name: 'Bosnian', flag: '🇧🇦' },
-    { name: 'Burmese', flag: '🇲🇲' },
-    { name: 'Belarusian', flag: '🇧🇾' },
-    { name: 'Albanian', flag: '🇦🇱' },
-    { name: 'Bengali', flag: '🇧🇩' },
-    { name: 'Afrikaans', flag: '🇿🇦' },
-    { name: 'Basque', flag: '🇪🇸' },
-    { name: 'Armenian', flag: '🇦🇲' },
-    { name: 'Albanian', flag: '🇦🇱' },
-    { name: 'Amharic', flag: '🇪🇹' },
-    { name: 'Azerbaijani', flag: '🇦🇿' },
-    { name: 'Arabic', flag: '🇸🇦' },
-    { name: 'Bosnian', flag: '🇧🇦' },
-    { name: 'Burmese', flag: '🇲🇲' },
-    { name: 'Belarusian', flag: '🇧🇾' },
+    { name: 'Bengali', flag: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRFMPaua-dxNnIysH300GqdWl9-EFUTFNYDyw&s' },
+    { name: 'Afrikaans', flag: 'https://upload.wikimedia.org/wikipedia/commons/a/af/Flag_of_South_Africa.svg' },
+    { name: 'Basque', flag: 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/2d/Flag_of_the_Basque_Country.svg/1280px-Flag_of_the_Basque_Country.svg.png' },
+    { name: 'Armenian', flag: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ7GvwgzSPAGliasiBe5wng8Py825pOhAPDuQ&s' },
+    { name: 'Albanian', flag: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQIA06TApmPmZ-KaBx-nZ4rWcI0aZjJ52juDQ&s' },
+    { name: 'Amharic', flag: 'https://upload.wikimedia.org/wikipedia/commons/7/71/Flag_of_Ethiopia.svg', active: true },
+    { name: 'Azerbaijani', flag: 'https://upload.wikimedia.org/wikipedia/commons/d/dd/Flag_of_Azerbaijan.svg' },
+    { name: 'Arabic', flag: 'https://cdn.britannica.com/79/5779-004-DC479508/Flag-Saudi-Arabia.jpg' },
+    { name: 'Bosnian', flag: 'https://upload.wikimedia.org/wikipedia/commons/thumb/b/bf/Flag_of_Bosnia_and_Herzegovina.svg/1280px-Flag_of_Bosnia_and_Herzegovina.svg.png' },
+    { name: 'Burmese', flag: 'https://cdn.britannica.com/34/4034-050-91EE1BCF/Flag-Myanmar.jpg' },
+    { name: 'Belarusian', flag: 'https://upload.wikimedia.org/wikipedia/commons/8/85/Flag_of_Belarus.svg' }, 
   ];
 
   return (
@@ -51,7 +39,11 @@ const LanguagePage = () => {
             }`}
           >
             <div className="w-8 h-8 md:w-10 md:h-10 rounded-full overflow-hidden border border-gray-100 flex items-center justify-center bg-gray-50 text-xl md:text-2xl flex-shrink-0">
-              {lang.flag}
+              {lang.flag.startsWith('http') ? (
+                <img src={lang.flag} alt={`${lang.name} flag`} className="w-full h-full object-cover" />
+              ) : (
+                <span>{lang.flag}</span>
+              )}
             </div>
             <span className="font-medium text-gray-700 text-sm md:text-base truncate">{lang.name}</span>
           </div>

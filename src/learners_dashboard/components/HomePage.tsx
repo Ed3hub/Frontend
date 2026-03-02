@@ -3,8 +3,8 @@ import { Users, CheckCircle2, Clock } from 'lucide-react';
 
 const HomePage = ({ setActivePage }) => {
   const ongoingCourses = [
-    { title: "Intro to Web3 & Blockchain Basics", tutor: "Sandra Jones", progress: "Finished", lessons: 12, img: "https://images.unsplash.com/photo-1639762681485-074b7f938ba0?w=400&h=300&fit=crop" },
-    { title: "Tokenomics: Designing Crypto Assets", tutor: "Tori Simone", progress: "40%", lessons: 8, img: "https://images.unsplash.com/photo-1611974714851-eb607737420d?w=400&h=300&fit=crop" },
+    { title: "Intro to Web3 & Blockchain Basics", tutor: "Sandra Jones", progress: "Finished", lessons: 12, img: "https://images.unsplash.com/photo-1605792657660-596af9009e82?q=80&w=1102&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" },
+    { title: "Tokenomics: Designing Crypto Assets", tutor: "Tori Simone", progress: "40%", lessons: 8, img: "https://plus.unsplash.com/premium_photo-1661962473906-c2cbc40fb71d?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDE5MXx8fGVufDB8fHx8fA%3D%3D" },
     { title: "Smart Contract Development", tutor: "Scott Daniel", progress: "Finished", lessons: 15, img: "https://images.unsplash.com/photo-1642104704074-907c0698cbd9?w=400&h=300&fit=crop" },
   ];
 
@@ -20,7 +20,7 @@ const HomePage = ({ setActivePage }) => {
 
       {/* Hero Section */}
       <div className="relative min-h-[300px] md:h-80 w-full rounded-2xl md:rounded-3xl overflow-hidden mb-12 flex flex-col md:flex-row items-center bg-blue-400">
-        <div className="relative z-10 p-6 sm:p-12 md:max-w-lg text-center md:text-left">
+        <div className="relative z-10 p-6 sm:p-12 text-center md:text-left">
           <h2 className="text-3xl md:text-5xl font-extrabold text-gray-900 leading-tight">Your Future Starts Here</h2>
           <p className="text-gray-800 text-base md:text-lg mt-4 mb-6 md:mb-8">Find courses tailored to your skill level and goals.</p>
           <button className="bg-white/20 backdrop-blur-sm border border-gray-800 text-gray-900 px-6 md:px-8 py-2 md:py-3 rounded-xl font-medium hover:bg-white/40 transition-all">
@@ -28,7 +28,7 @@ const HomePage = ({ setActivePage }) => {
           </button>
         </div>
         <img 
-          src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=800&h=600&fit=crop" 
+          src="/laptop_lady.svg" 
           alt="Hero" 
           className="md:absolute right-0 bottom-0 h-48 md:h-[110%] w-full md:w-auto object-cover md:object-contain opacity-80 md:opacity-100"
         />
