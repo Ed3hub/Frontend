@@ -87,7 +87,7 @@ const ScheduleSession = () => {
 
   return (
     <div className="max-w-xl mx-auto py-8 bg-white font-sans text-[#1a1a1a]">
-      <h2 className="text-2xl font-bold mb-8">Schedule a session</h2>
+      <h2 className="text-base font-bold mb-8">Schedule a session</h2>
 
       <div className="space-y-6">
         {/* Title & Description */}
@@ -138,7 +138,7 @@ const ScheduleSession = () => {
           </select>
         </div>
 
-        <h3 className="text-lg font-bold pt-4">Date & Time</h3>
+        <h3 className="text-sm font-bold pt-4">Date & Time</h3>
 
         {/* Date Section */}
         <div className="relative">

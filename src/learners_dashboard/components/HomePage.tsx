@@ -1,7 +1,12 @@
 import React from 'react';
 import { Users, CheckCircle2, Clock } from 'lucide-react';
 
-const HomePage = ({ setActivePage }) => {
+interface HomePageProps {
+  setActivePage: (page: string) => void;
+  setSelectedCourse: (course: { title: string; instructor: string; img: string }) => void;
+}
+
+const HomePage = ({ setActivePage, setSelectedCourse }: HomePageProps) => {
   const ongoingCourses = [
     { title: "Intro to Web3 & Blockchain Basics", tutor: "Sandra Jones", progress: "Finished", lessons: 12, img: "https://images.unsplash.com/photo-1605792657660-596af9009e82?q=80&w=1102&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" },
     { title: "Tokenomics: Designing Crypto Assets", tutor: "Tori Simone", progress: "40%", lessons: 8, img: "https://plus.unsplash.com/premium_photo-1661962473906-c2cbc40fb71d?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDE5MXx8fGVufDB8fHx8fA%3D%3D" },
@@ -38,11 +43,18 @@ const HomePage = ({ setActivePage }) => {
       <section className="mb-12 md:mb-16">
         <div className="flex justify-between items-center mb-6 md:mb-8">
           <h3 className="text-xl md:text-2xl font-bold text-gray-800">Ongoing courses</h3>
-          <button className="text-blue-600 font-medium text-sm md:text-base">See All</button>
+          <button onClick={() => setActivePage('ongoingCourses')} className="text-blue-600 font-medium text-sm md:text-base">See All</button>
         </div>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
           {ongoingCourses.map((course, i) => (
-            <div key={i} className="bg-white rounded-2xl overflow-hidden shadow-sm border border-gray-100 group cursor-pointer hover:shadow-md transition-all">
+            <div
+              key={i}
+              onClick={() => {
+                setSelectedCourse({ title: course.title, instructor: course.tutor, img: course.img });
+                setActivePage('courseDetails');
+              }}
+              className="bg-white rounded-2xl overflow-hidden shadow-sm border border-gray-100 group cursor-pointer hover:shadow-md transition-all"
+            >
               <img src={course.img} alt={course.title} className="w-full h-40 md:h-48 object-cover" />
               <div className="p-4 md:p-5">
                 <h4 className="font-bold text-base md:text-lg mb-4 line-clamp-2">{course.title}</h4>
@@ -70,24 +82,38 @@ const HomePage = ({ setActivePage }) => {
           <button className="text-blue-600 font-medium text-sm md:text-base">See All</button>
         </div>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
-          {[1,2,3].map(i => (
-            <div key={i} className="bg-white rounded-2xl overflow-hidden shadow-sm border border-gray-100 cursor-pointer hover:shadow-md transition-all">
-              <div className="w-full h-40 md:h-48 bg-gray-100">
-                 <img src={ongoingCourses[i-1].img} alt="Course" className="w-full h-full object-cover" />
-              </div>
-              <div className="p-4 md:p-5">
-                <h4 className="font-bold text-base md:text-lg mb-4">Web3 Identity & Auth</h4>
-                <div className="space-y-2 text-xs md:text-sm text-gray-500">
-                  <div className="flex items-center gap-2">
-                    <Users className="w-4 h-4" /> Sandra Jones
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <div className="w-4 h-4 flex items-center justify-center font-bold">B</div> Beginner Friendly
+          {[1,2,3].map(i => {
+            const rec = [
+              { title: "Web3 Identity & Auth", instructor: "Sandra Jones", img: ongoingCourses[0].img },
+              { title: "NFT Design Principles", instructor: "Marcus Lee", img: ongoingCourses[1].img },
+              { title: "DeFi for Designers", instructor: "Priya Mehta", img: ongoingCourses[2].img },
+            ][i - 1];
+            return (
+              <div
+                key={i}
+                onClick={() => {
+                  setSelectedCourse(rec);
+                  setActivePage('courseDetails');
+                }}
+                className="bg-white rounded-2xl overflow-hidden shadow-sm border border-gray-100 cursor-pointer hover:shadow-md transition-all"
+              >
+                <div className="w-full h-40 md:h-48 bg-gray-100">
+                  <img src={rec.img} alt="Course" className="w-full h-full object-cover" />
+                </div>
+                <div className="p-4 md:p-5">
+                  <h4 className="font-bold text-base md:text-lg mb-4">{rec.title}</h4>
+                  <div className="space-y-2 text-xs md:text-sm text-gray-500">
+                    <div className="flex items-center gap-2">
+                      <Users className="w-4 h-4" /> {rec.instructor}
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <div className="w-4 h-4 flex items-center justify-center font-bold">B</div> Beginner Friendly
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
-          ))}
+            );
+          })}
         </div>
       </section>
     </div>

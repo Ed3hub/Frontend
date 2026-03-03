@@ -111,7 +111,7 @@ const Pricing = () => {
         /* --- STEP 1: PLAN SELECTION --- */
         <div className="animate-in fade-in duration-300">
           <header className="mb-8">
-            <h2 className="text-xl font-bold">Pricing and Access Control</h2>
+            <h2 className="text-base font-bold">Pricing and Access Control</h2>
             <p className="text-xs text-gray-500 mt-1">
               Set your course as free, paid, or token-gated and manage who can
               join.
@@ -129,7 +129,7 @@ const Pricing = () => {
                     : "bg-white border-gray-100 hover:border-gray-200"
                 }`}
               >
-                <h3 className="text-lg font-bold mb-2">{plan.title}</h3>
+                <h3 className="text-sm font-bold mb-2">{plan.title}</h3>
                 <div className="flex items-baseline gap-1 mb-6">
                   <span className="text-2xl font-bold">$ {plan.price}</span>
                   <span className="text-xs text-gray-500 font-medium">
@@ -183,7 +183,7 @@ const Pricing = () => {
         /* --- STEP 2: FREE COURSE SETUP --- */
         <div className="animate-in slide-in-from-right-4 duration-300">
           <header className="mb-8">
-            <h2 className="text-xl font-bold">Pricing and Access Control</h2>
+            <h2 className="text-base font-bold">Pricing and Access Control</h2>
             <p className="text-xs text-gray-800 font-medium mt-2">
               Free Course Setup
             </p>

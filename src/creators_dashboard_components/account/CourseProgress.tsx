@@ -38,7 +38,7 @@ const CourseCard = ({ course }: { course: Course }) => {
       {/* Course Details */}
       <div className="space-y-3">
         <div className="flex justify-between items-start">
-          <h3 className="font-semibold text-gray-800 text-lg leading-tight w-2/3">
+          <h3 className="font-semibold text-gray-800 text-[13px] leading-tight w-2/3">
             {course.title}
           </h3>
           <div className="flex items-center text-yellow-500 font-semibold">
@@ -70,10 +70,10 @@ const CourseProgress = () => {
   return (
     <div className="max-w-7xl mx-auto p-8 min-h-screen">
       <header className="mb-8">
-        <h1 className="text-3xl font-bold text-gray-900 mb-6">
+        <h1 className="text-base font-bold text-gray-900 mb-6">
           Course Progress
         </h1>
-        <h2 className="text-lg font-semibold text-gray-700">My Courses</h2>
+        <h2 className="text-sm font-semibold text-gray-700">My Courses</h2>
       </header>
 
       {/* Grid Layout */}

@@ -55,7 +55,7 @@ const CourseVisibility = () => {
     <div className="max-w-xl mx-auto py-8 bg-white font-sans text-[#1a1a1a]">
       {/* Header */}
       <header className="mb-8">
-        <h2 className="text-2xl font-bold mb-2">Set Course Visibility</h2>
+        <h2 className="text-base font-bold mb-2">Set Course Visibility</h2>
         <p className="text-sm text-gray-500 leading-relaxed">
           Control who can access your course—choose public, private,
           token-gated, or scheduled visibility.

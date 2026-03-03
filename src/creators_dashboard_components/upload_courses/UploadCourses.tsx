@@ -242,7 +242,7 @@ const UploadCourses: React.FC = () => {
       {/* --- RESTORED STEP 1 --- */}
       {currentStep === 1 && (
         <div className="animate-in fade-in duration-300 space-y-6">
-          <h2 className="text-2xl font-bold mb-8 text-black">Course Details</h2>
+          <h2 className="text-base font-bold mb-8 text-black">Course Details</h2>
           <div className="space-y-6">
             <div>
               <label className="block text-sm font-medium text-gray-400 mb-2">Course Name</label>
@@ -272,7 +272,7 @@ const UploadCourses: React.FC = () => {
       {/* --- RESTORED STEP 2 --- */}
       {currentStep === 2 && (
         <div className="animate-in slide-in-from-right-4 duration-300 space-y-6">
-          <h2 className="text-2xl font-bold mb-8">Course Structure</h2>
+          <h2 className="text-base font-bold mb-8">Course Structure</h2>
           <div>
             <label className="block text-sm font-medium text-gray-400 mb-2">Course Description</label>
             <textarea name="courseDescription" rows={3} value={formData.courseDescription} onChange={handleInputChange} className="w-full px-4 py-3 border border-gray-200 rounded-lg outline-none resize-none text-black" />
@@ -280,7 +280,7 @@ const UploadCourses: React.FC = () => {
 
           <div>
             <div className="flex justify-between items-center mb-4">
-              <h3 className="text-lg font-bold">Modules</h3>
+              <h3 className="text-sm font-bold">Modules</h3>
               <button onClick={() => setIsModalOpen(true)} className="text-gray-400 text-sm flex items-center gap-1 hover:text-[#00AEEF]">
                 Add Modules <Plus size={16} />
               </button>
@@ -342,7 +342,7 @@ const UploadCourses: React.FC = () => {
       {/* --- RESTORED STEP 3 --- */}
       {currentStep === 3 && (
         <div className="animate-in slide-in-from-right-4 duration-300 space-y-6 text-black">
-          <h2 className="text-2xl font-bold mb-4">Course Duration</h2>
+          <h2 className="text-base font-bold mb-4">Course Duration</h2>
           <div className="relative">
             <label className="block text-sm font-medium text-gray-400 mb-2">Duration</label>
             <div onClick={() => setShowDurationDropdown(!showDurationDropdown)} className="w-full px-4 py-3 border border-gray-200 rounded-lg flex justify-between items-center cursor-pointer bg-white">

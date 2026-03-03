@@ -94,7 +94,7 @@ const QuizAssessment = () => {
     <div className="max-w-2xl mx-auto p-8 bg-white font-sans text-black min-h-screen">
       {/* HEADER SECTION */}
       <div className="mb-8">
-        <h1 className="text-2xl font-bold mb-6">Quiz/Assessment</h1>
+        <h1 className="text-base font-bold mb-6">Quiz/Assessment</h1>
         
         <div className="relative">
           <label className="block text-sm font-medium text-gray-500 mb-2">Type: {assessmentType}</label>
@@ -192,7 +192,7 @@ const QuizAssessment = () => {
         /* REVIEW SCREEN */
         <div className="animate-in slide-in-from-bottom-4 duration-500">
           <div className="flex items-center justify-between mb-6">
-            <h2 className="text-xl font-bold">Review Your Work</h2>
+            <h2 className="text-sm font-bold">Review Your Work</h2>
             <span className="bg-blue-50 text-[#00AEEF] px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider">
               {assessmentType}
             </span>

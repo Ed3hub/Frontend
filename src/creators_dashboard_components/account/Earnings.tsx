@@ -34,7 +34,7 @@ const MetricCard = ({ icon: Icon, value, label, bgColor }: MetricCardProps) => (
       <span className={`p-3 rounded-2xl ${bgColor}`}>
         <Icon className="text-blue-500" size={24} />
       </span>
-      <span className="text-3xl font-bold text-gray-900">{value}</span>
+      <span className="text-lg font-bold text-gray-900">{value}</span>
     </div>
     <div>
       <span className="text-gray-400 text-sm font-medium">{label}</span>
@@ -49,7 +49,7 @@ const Earnings = () => {
 
   return (
     <div className="p-8 bg-white min-h-screen">
-      <h1 className="text-2xl font-bold text-gray-800 mb-8">
+      <h1 className="text-base font-bold text-gray-800 mb-8">
         Earnings & Engagement
       </h1>
 
@@ -78,7 +78,7 @@ const Earnings = () => {
       <div className="bg-white rounded-3xl p-10 shadow-sm border border-gray-50">
         <div className="flex flex-col mb-8">
           <div className="flex items-center gap-2 mb-1">
-            <span className="text-gray-500 font-medium text-lg">Total Earnings</span>
+            <span className="text-gray-500 font-medium text-sm">Total Earnings</span>
             <button
               onClick={() => setIsVisible(!isVisible)}
               className="text-gray-400 hover:text-blue-500 transition-colors"
@@ -88,7 +88,7 @@ const Earnings = () => {
               {isVisible ? <Eye size={20} /> : <EyeOff size={20} />}
             </button>
           </div>
-          <h2 className="text-5xl font-bold text-gray-900 tracking-tight">
+          <h2 className="text-2xl font-bold text-gray-900 tracking-tight">
             {isVisible ? earningsValue : "••••••"}
           </h2>
         </div>

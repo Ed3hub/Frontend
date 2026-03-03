@@ -27,7 +27,7 @@ const Community = () => {
     <div className="max-w-2xl mx-auto p-8 bg-white font-sans text-[#1a1a1a]">
       {/* 1. Community and Interaction */}
       <section className="mb-10">
-        <h2 className="text-2xl font-bold mb-2">Community and Interaction</h2>
+        <h2 className="text-base font-bold mb-2">Community and Interaction</h2>
         <p className="text-sm text-gray-600 mb-6 leading-relaxed">
           Enable this option to let learners post comments and participate in
           discussion threads within the course. Turn off to keep the course
@@ -43,7 +43,7 @@ const Community = () => {
 
       {/* 2. Study Group Link */}
       <section className="mb-10">
-        <h3 className="text-lg font-bold mb-4">
+        <h3 className="text-sm font-bold mb-4">
           Add a link to study group or discord channel
         </h3>
         <div className="border border-gray-200 rounded-xl p-4 bg-white">
@@ -62,7 +62,7 @@ const Community = () => {
 
       {/* 3. Q&A Sessions */}
       <section className="mb-12">
-        <h3 className="text-lg font-bold mb-2">Host Live Q&A Sessions</h3>
+        <h3 className="text-sm font-bold mb-2">Host Live Q&A Sessions</h3>
         <p className="text-sm text-gray-600 mb-6 leading-relaxed">
           Engage your learners in real time by hosting live Q&A sessions. Answer
           their questions, provide guidance, and deepen understanding of key
@@ -80,7 +80,7 @@ const Community = () => {
 
       {/* 4. Web3 Integration */}
       <section className="mb-12">
-        <h2 className="text-2xl font-bold mb-2">Web3 Integration</h2>
+        <h2 className="text-base font-bold mb-2">Web3 Integration</h2>
         <p className="text-sm text-gray-600 mb-6">
           Connect wallets and manage on-chain certificates easily.
         </p>
