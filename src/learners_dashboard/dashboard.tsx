@@ -8,11 +8,13 @@ import CommunityPage from './components/CommunityPage';
 import ChatPage from './components/ChatPage';
 import OngoingCourses from './components/OngoingCourses';
 import CourseDetails from './components/CourseDetails';
+import RecommendedCourses from './components/RecommendedCourses';
+import CheckoutFlow from './components/Payment';
 
 export default function App() {
   const [activePage, setActivePage] = useState('home');
   const [selectedTutor, setSelectedTutor] = useState(null);
-  const [selectedCourse, setSelectedCourse] = useState<{ title: string; instructor: string; img: string } | null>(null);
+  const [selectedCourse, setSelectedCourse] = useState<{ title: string; instructor: string; img: string; showPurchaseModal?: boolean } | null>(null);
 
   const renderPage = () => {
     switch(activePage) {
@@ -23,7 +25,9 @@ export default function App() {
       case 'community': return <CommunityPage />;
       case 'chat': return <ChatPage tutor={selectedTutor} />;
       case 'ongoingCourses': return <OngoingCourses setActivePage={setActivePage} setSelectedCourse={setSelectedCourse} />;
+      case 'recommendedCourses': return <RecommendedCourses setActivePage={setActivePage} setSelectedCourse={setSelectedCourse} />;
       case 'courseDetails': return <CourseDetails setActivePage={setActivePage} course={selectedCourse} />;
+      case 'payment': return <CheckoutFlow setActivePage={setActivePage} setSelectedCourse={setSelectedCourse} course={selectedCourse} />;
       default: return <HomePage setActivePage={setActivePage} setSelectedCourse={setSelectedCourse} />;
     }
   };

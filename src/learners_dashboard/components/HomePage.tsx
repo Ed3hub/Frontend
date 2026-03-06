@@ -3,7 +3,7 @@ import { Users, CheckCircle2, Clock } from 'lucide-react';
 
 interface HomePageProps {
   setActivePage: (page: string) => void;
-  setSelectedCourse: (course: { title: string; instructor: string; img: string }) => void;
+  setSelectedCourse: (course: { title: string; instructor: string; img: string; showPurchaseModal?: boolean }) => void;
 }
 
 const HomePage = ({ setActivePage, setSelectedCourse }: HomePageProps) => {
@@ -79,41 +79,48 @@ const HomePage = ({ setActivePage, setSelectedCourse }: HomePageProps) => {
       <section>
         <div className="flex justify-between items-center mb-6 md:mb-8">
           <h3 className="text-xl md:text-2xl font-bold text-gray-800">Recommended courses</h3>
-          <button className="text-blue-600 font-medium text-sm md:text-base">See All</button>
+          <button onClick={() => setActivePage('recommendedCourses')} className="text-blue-600 font-medium text-sm md:text-base">See All</button>
         </div>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
-          {[1,2,3].map(i => {
-            const rec = [
-              { title: "Web3 Identity & Auth", instructor: "Sandra Jones", img: ongoingCourses[0].img },
-              { title: "NFT Design Principles", instructor: "Marcus Lee", img: ongoingCourses[1].img },
-              { title: "DeFi for Designers", instructor: "Priya Mehta", img: ongoingCourses[2].img },
-            ][i - 1];
-            return (
-              <div
-                key={i}
-                onClick={() => {
-                  setSelectedCourse(rec);
-                  setActivePage('courseDetails');
-                }}
-                className="bg-white rounded-2xl overflow-hidden shadow-sm border border-gray-100 cursor-pointer hover:shadow-md transition-all"
-              >
-                <div className="w-full h-40 md:h-48 bg-gray-100">
-                  <img src={rec.img} alt="Course" className="w-full h-full object-cover" />
-                </div>
-                <div className="p-4 md:p-5">
-                  <h4 className="font-bold text-base md:text-lg mb-4">{rec.title}</h4>
-                  <div className="space-y-2 text-xs md:text-sm text-gray-500">
-                    <div className="flex items-center gap-2">
-                      <Users className="w-4 h-4" /> {rec.instructor}
-                    </div>
-                    <div className="flex items-center gap-2">
-                      <div className="w-4 h-4 flex items-center justify-center font-bold">B</div> Beginner Friendly
-                    </div>
+          {[
+            { title: "Web3 Identity & Decentralized Authentication", instructor: "Sandra Jones", views: "1.2k", img: "https://images.unsplash.com/photo-1639322537138-5e513100b36e?q=80&w=1032&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" },
+            { title: "Building dApps with Solidity", instructor: "Tori Simone", views: "10.5k", img: "https://images.unsplash.com/photo-1666811722587-b5a1885b21f6?q=80&w=1032&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" },
+            { title: "How Blockchain Works", instructor: "Scott Daniel", views: "13.9k", img: "https://images.unsplash.com/photo-1516245834210-c4c142787335?q=80&w=869&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" },
+          ].map((rec, i) => (
+            <div key={i} className="flex flex-col bg-white rounded-2xl overflow-hidden shadow-sm border border-gray-100 group cursor-pointer hover:shadow-md transition-all">
+              <div className="bg-white rounded-t-2xl">
+                <img
+                  src={rec.img}
+                  alt={rec.title}
+                  className="w-full h-40 md:h-48 object-cover transition-transform duration-300 group-hover:scale-105"
+                />
+              </div>
+              <div className='p-4 md:p-5'>
+                <h4 className="text-base md:text-lg font-bold leading-tight mb-2 text-gray-900">{rec.title}</h4>
+              <div className="flex items-center justify-between mt-auto">
+                <div className="text-sm text-gray-600">
+                  <div className="flex items-center gap-1 mb-1">
+                    <span className="w-4 h-4 rounded-full border border-gray-400 flex items-center justify-center text-[10px]">👤</span>
+                    {rec.instructor}
+                  </div>
+                  <div className="flex items-center gap-1">
+                    <span className="text-xs">👁</span> {rec.views}
                   </div>
                 </div>
+                <button
+                  onClick={() => {
+                    setSelectedCourse({ title: rec.title, instructor: rec.instructor, img: rec.img, showPurchaseModal: true });
+                    setActivePage('courseDetails');
+                  }}
+                  className="text-blue-500 text-sm font-semibold hover:underline"
+                >
+                  Enroll Now
+                </button>
               </div>
-            );
-          })}
+              </div>
+              
+            </div>
+          ))}
         </div>
       </section>
     </div>

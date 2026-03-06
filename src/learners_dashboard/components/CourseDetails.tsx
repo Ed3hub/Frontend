@@ -1,24 +1,24 @@
-import React from 'react';
-import { 
-  ChevronLeft, 
-  Star, 
-  Download, 
-  CheckCircle2, 
-  PlayCircle, 
-  Clock, 
-  BookOpen, 
+import React, { useState } from 'react';
+import {
+  ChevronLeft,
+  Star,
+  Download,
+  CheckCircle2,
+  Clock,
   FileText,
-  ChevronRight
+  X,
 } from 'lucide-react';
 
 interface CourseDetailsProps {
   setActivePage: (page: string) => void;
-  course: { title: string; instructor: string; img: string } | null;
+  course: { title: string; instructor: string; img: string; showPurchaseModal?: boolean } | null;
 }
 
 const CourseDetails = ({ setActivePage, course }: CourseDetailsProps) => {
+  const [modalOpen, setModalOpen] = useState(course?.showPurchaseModal ?? false);
+
   const tabs = ["Home", "Resources", "Skill Level", "Duration", "Info"];
-  
+
   const modules = [
     { title: "Introduction to Tokenomics", type: "Video", duration: "6 mins", completed: true },
     { title: "Token Distribution Model", type: "Video", duration: "7 mins", completed: true },
@@ -77,8 +77,8 @@ const CourseDetails = ({ setActivePage, course }: CourseDetailsProps) => {
           <button
             key={tab}
             className={`px-6 py-2 rounded-lg border text-sm font-medium transition-all ${
-              idx === 0 
-                ? "bg-blue-50 border-blue-400 text-blue-500 shadow-sm" 
+              idx === 0
+                ? "bg-blue-50 border-blue-400 text-blue-500 shadow-sm"
                 : "bg-white border-gray-200 text-gray-500 hover:border-gray-400"
             }`}
           >
@@ -90,10 +90,10 @@ const CourseDetails = ({ setActivePage, course }: CourseDetailsProps) => {
       {/* Description */}
       <div className="mb-10">
         <p className="text-gray-600 leading-relaxed text-sm">
-          This course introduces UI/UX designers to the world of Tokenomics and Decentralized Finance (DeFi). 
-          You'll learn how DeFi protocols work, the economic models behind them, and how to design usable, 
-          trustworthy, and engaging interfaces for Web3 users. 
-          The course blends conceptual understanding with practical design applications, helping you... 
+          This course introduces UI/UX designers to the world of Tokenomics and Decentralized Finance (DeFi).
+          You'll learn how DeFi protocols work, the economic models behind them, and how to design usable,
+          trustworthy, and engaging interfaces for Web3 users.
+          The course blends conceptual understanding with practical design applications, helping you...
           <button className="text-blue-500 font-semibold ml-1">see more...</button>
         </p>
       </div>
@@ -147,6 +147,87 @@ const CourseDetails = ({ setActivePage, course }: CourseDetailsProps) => {
           </div>
         </div>
       </section>
+
+      {/* One-Time Course Purchase Modal */}
+      {modalOpen && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center">
+          {/* Backdrop */}
+          <div
+            className="absolute inset-0 bg-black/50 backdrop-blur-sm"
+            onClick={() => {
+              setModalOpen(false);
+              setActivePage('recommendedCourses');
+            }}
+          />
+
+          {/* Modal Card */}
+          <div className="relative bg-white rounded-2xl shadow-2xl w-full max-w-3xl mx-4 p-8 flex flex-col gap-4 animate-fade-in">
+            {/* The subscription and one-time payment instruction */}
+            <div className='flex flex-col md:flex-row gap-4'>
+           <div className='flex flex-col gap-2 text-center'>
+            {/* Heading */}
+            <h2 className="text-xl font-extrabold text-gray-900">Subscribe to Ed3Hub</h2>
+
+            {/* Sub-text */}
+            <p className="text-gray-500 text-sm leading-relaxed">
+            Pay a monthly or yearly subscription fee for unlimited access to all eligible courses on the platform.</p>
+
+            {/* Divider */}
+            <hr className="border-gray-100" />
+
+            {/* Actions */}
+            <div className="">
+              <button
+                onClick={() => {
+                  setModalOpen(false);
+                  setActivePage('payment');
+                }}
+                className="flex-1 px-12 bg-[#00A6FB] py-3 rounded-xl  text-white font-semibold text-sm hover:bg-blue-700 transition-colors shadow-md shadow-blue-200"
+              >
+                Subscribe
+              </button>
+            </div>
+           </div>
+           <div className='flex flex-col gap-2 text-center'>
+            {/* Heading */}
+            <h2 className="text-xl font-extrabold text-gray-900">One-Time Course Purchase</h2>
+
+            {/* Sub-text */}
+            <p className="text-gray-500 text-sm leading-relaxed">
+              Buy this particular course once for a set price with lifetime access to that specific course.
+            </p>
+
+            {/* Divider */}
+            <hr className="border-gray-100" />
+
+            {/* Actions */}
+            <div className="">
+              <button
+                onClick={() => {
+                  setModalOpen(false);
+                  setActivePage('payment');
+                }}
+                className="flex-1 px-12 bg-[#00A6FB] py-3 rounded-xl  text-white font-semibold text-sm hover:bg-blue-700 transition-colors shadow-md shadow-blue-200"
+              >
+                Make Payment
+              </button>
+            </div>
+           </div>
+            
+          </div>
+          {/* Cancel button */}
+            <button
+                onClick={() => {
+                  setModalOpen(false);
+                  setActivePage('recommendedCourses');
+                }}
+                className="flex-1 py-3 px-12 w-48 mx-auto rounded-xl border border-gray-200 text-gray-700 font-semibold text-sm hover:bg-gray-50 transition-colors"
+              >
+                Cancel
+              </button>
+          </div>
+        </div>
+      )}
     </div>
   );
 };
