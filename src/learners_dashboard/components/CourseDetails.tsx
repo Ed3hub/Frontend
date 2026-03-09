@@ -180,7 +180,7 @@ const CourseDetails = ({ setActivePage, course }: CourseDetailsProps) => {
               <button
                 onClick={() => {
                   setModalOpen(false);
-                  setActivePage('payment');
+                  setActivePage('subscription');
                 }}
                 className="flex-1 px-12 bg-[#00A6FB] py-3 rounded-xl  text-white font-semibold text-sm hover:bg-blue-700 transition-colors shadow-md shadow-blue-200"
               >

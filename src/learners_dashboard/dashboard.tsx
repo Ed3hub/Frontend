@@ -10,6 +10,7 @@ import OngoingCourses from './components/OngoingCourses';
 import CourseDetails from './components/CourseDetails';
 import RecommendedCourses from './components/RecommendedCourses';
 import CheckoutFlow from './components/Payment';
+import SubscriptionPage from './components/Subscription';
 
 export default function App() {
   const [activePage, setActivePage] = useState('home');
@@ -28,6 +29,7 @@ export default function App() {
       case 'recommendedCourses': return <RecommendedCourses setActivePage={setActivePage} setSelectedCourse={setSelectedCourse} />;
       case 'courseDetails': return <CourseDetails setActivePage={setActivePage} course={selectedCourse} />;
       case 'payment': return <CheckoutFlow setActivePage={setActivePage} setSelectedCourse={setSelectedCourse} course={selectedCourse} />;
+      case 'subscription': return <SubscriptionPage setActivePage={setActivePage} />;
       default: return <HomePage setActivePage={setActivePage} setSelectedCourse={setSelectedCourse} />;
     }
   };
