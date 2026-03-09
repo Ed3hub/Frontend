@@ -1,11 +1,15 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { CheckCircle2, XCircle, ShieldCheck, RefreshCcw, Headset, ArrowRight } from 'lucide-react';
+
+type Plan = 'monthly' | 'annual';
 
 interface SubscriptionPageProps {
   setActivePage: (page: string) => void;
 }
 
 const SubscriptionPage = ({ setActivePage }: SubscriptionPageProps) => {
+  const [selectedPlan, setSelectedPlan] = useState<Plan>('annual');
+
   return (
     <div className="min-h-screen bg-slate-50 font-sans text-slate-900 pb-20">
       {/* Header Navigation */}
@@ -31,12 +35,25 @@ const SubscriptionPage = ({ setActivePage }: SubscriptionPageProps) => {
 
       {/* Pricing Cards */}
       <div className="max-w-5xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
-        
+
         {/* Monthly Plan */}
-        <div className="bg-white rounded-3xl p-8 border border-slate-100 shadow-sm flex flex-col">
+        <div
+          onClick={() => setSelectedPlan('monthly')}
+          className={`relative bg-white rounded-3xl p-8 flex flex-col cursor-pointer transition-all duration-200 ${
+            selectedPlan === 'monthly'
+              ? 'border-2 border-blue-500 shadow-xl ring-2 ring-blue-100'
+              : 'border border-slate-100 shadow-sm hover:shadow-md hover:border-slate-300'
+          }`}
+        >
+          {selectedPlan === 'monthly' && (
+            <div className="absolute top-4 right-4 w-6 h-6 bg-blue-500 rounded-full flex items-center justify-center">
+              <CheckCircle2 size={14} className="text-white" />
+            </div>
+          )}
+
           <h3 className="font-bold text-xl mb-1">Monthly</h3>
           <p className="text-slate-400 text-sm mb-6">Perfect for short-term learning goals.</p>
-          
+
           <div className="flex items-baseline mb-8">
             <span className="text-4xl font-bold">$29</span>
             <span className="text-slate-400 ml-1">/per month</span>
@@ -50,22 +67,39 @@ const SubscriptionPage = ({ setActivePage }: SubscriptionPageProps) => {
           </ul>
 
           <button
-            onClick={() => setActivePage('payment')}
-            className="w-full py-4 bg-slate-100 text-slate-900 font-bold rounded-xl hover:bg-slate-200 transition-colors"
+            onClick={(e) => { e.stopPropagation(); setActivePage('payment'); }}
+            className={`w-full py-4 font-bold rounded-xl transition-colors ${
+              selectedPlan === 'monthly'
+                ? 'bg-blue-600 text-white hover:bg-blue-700 shadow-lg shadow-blue-200'
+                : 'bg-slate-100 text-slate-400 cursor-not-allowed'
+            }`}
           >
             Select Monthly Plan
           </button>
         </div>
 
         {/* Annual Plan (Featured) */}
-        <div className="relative bg-white rounded-3xl p-8 border-2 border-blue-500 shadow-xl flex flex-col scale-105 z-10">
+        <div
+          onClick={() => setSelectedPlan('annual')}
+          className={`relative bg-white rounded-3xl p-8 flex flex-col cursor-pointer transition-all duration-200 ${
+            selectedPlan === 'annual'
+              ? 'border-2 border-blue-500 shadow-xl ring-2 ring-blue-100'
+              : 'border border-slate-100 shadow-sm hover:shadow-md hover:border-slate-300'
+          }`}
+        >
           <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-blue-600 text-white text-[10px] font-bold px-4 py-1 rounded-full uppercase tracking-widest">
             Best Value
           </div>
-          
+
+          {selectedPlan === 'annual' && (
+            <div className="absolute top-4 right-4 w-6 h-6 bg-blue-500 rounded-full flex items-center justify-center">
+              <CheckCircle2 size={14} className="text-white" />
+            </div>
+          )}
+
           <h3 className="font-bold text-xl mb-1">Annual</h3>
           <p className="text-slate-400 text-sm mb-6">The ultimate commitment to your Web3 career.</p>
-          
+
           <div className="flex flex-col mb-8">
             <div className="flex items-baseline">
               <span className="text-4xl font-bold">$249</span>
@@ -82,8 +116,12 @@ const SubscriptionPage = ({ setActivePage }: SubscriptionPageProps) => {
           </ul>
 
           <button
-            onClick={() => setActivePage('payment')}
-            className="w-full py-4 bg-blue-600 text-white font-bold rounded-xl hover:bg-blue-700 shadow-lg shadow-blue-200 transition-colors"
+            onClick={(e) => { e.stopPropagation(); setActivePage('payment'); }}
+            className={`w-full py-4 font-bold rounded-xl transition-colors ${
+              selectedPlan === 'annual'
+                ? 'bg-blue-600 text-white hover:bg-blue-700 shadow-lg shadow-blue-200'
+                : 'bg-slate-100 text-slate-400 cursor-not-allowed'
+            }`}
           >
             Select Annual Plan
           </button>

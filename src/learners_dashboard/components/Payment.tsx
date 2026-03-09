@@ -49,9 +49,10 @@ export default function CheckoutFlow({ setActivePage, setSelectedCourse, course 
         selected={wallet}
         setSelected={setWallet}
         onNext={() => setStep('PAYMENT_DETAILS')}
+        onBack={() => setStep('CHOOSE_METHOD')}
       />
     );
   }
 
-  return <PaymentDetailsStep onPaymentSuccess={handlePaymentSuccess} />;
+  return <PaymentDetailsStep onPaymentSuccess={handlePaymentSuccess} onBack={() => setStep('CHOOSE_METHOD')} />;
 }
