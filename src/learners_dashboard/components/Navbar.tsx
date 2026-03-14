@@ -15,6 +15,7 @@ const Navbar: React.FC<NavbarProps> = ({ activePage, setActivePage }) => {
     { id: 'tutors', label: 'Tutors' },
     { id: 'community', label: 'Community' },
     { id: 'chat', label: 'Chat with tutor' },
+    { id: 'tokens', label: 'Tokens' },
   ];
 
   const handleNavClick = (id: string) => {
@@ -31,7 +32,7 @@ const Navbar: React.FC<NavbarProps> = ({ activePage, setActivePage }) => {
         </div>
         
         {/* Desktop Navigation */}
-        <div className="hidden lg:flex items-center gap-8">
+        <div className="hidden lg:flex items-center gap-6">
           {navItems.map(item => (
             <button
               key={item.id}

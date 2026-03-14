@@ -23,7 +23,7 @@ const RewardRow: React.FC<RewardItemProps> = ({ title, isClaimed, type, icon }) 
     {/* Dynamic Button State */}
     <button
       disabled={isClaimed}
-      className={`px-6 py-2 rounded-xl text-xs font-bold transition-all ${
+      className={`px-6 py-3 rounded-xl text-xs font-bold transition-all ${
         isClaimed
           ? 'bg-blue-500 text-white shadow-sm'
           : 'bg-gray-200 text-gray-400 cursor-not-allowed'
@@ -76,12 +76,12 @@ const RewardsPage: React.FC<TokensPageProps> = ({ setActivePage }) => {
     <div className="max-w-4xl mx-auto bg-white min-h-screen p-8 font-sans">
       {/* Header */}
       <header className="flex items-center justify-center mb-12 relative">
-        <button 
+        {/* <button 
           onClick={() => setActivePage('courseDetails')}
           className="absolute left-0 p-2 hover:bg-gray-100 rounded-full transition-colors"
         >
           <ChevronLeft className="text-gray-800" size={24} />
-        </button>
+        </button> */}
         <h1 className="text-3xl font-extrabold text-gray-900 tracking-tight">
           Tokens and Rewards
         </h1>
